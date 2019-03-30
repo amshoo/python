@@ -42,7 +42,7 @@ def TC_of(i):
     #sumof_sdeg_i
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     #equetion 3:Tr centrality value of TC_i
-    TC_i = (3*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i    
+    TC_i = (math.pi*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i    
     return  TC_i
 
 
@@ -66,7 +66,7 @@ def loop_TC():
             if TC_constrain_of(i) != 0:
                 TR_i = round(TC_of(i), 4)
                 i+=1
-                TC = (i, 1-TR_i)       
+                TC = (i, TR_i)       
                 TC_list.append(TC)            
     return  TC_list
 
