@@ -7,14 +7,11 @@ import math
 
 # In[ ]:
 #TR_i = tr-ceyntrality i subgraph
-def graph():
-    Graph = nx.karate_club_graph()
+def graph():    
+    import graph
+    Graph = graph.H
     return Graph
-G = graph()
-def graph_h():
-    H = nx.convert_node_labels_to_integers(G, first_label=0, ordering="default", label_attribute = None)
-    return H
-H = graph_h()
+H = graph()
 # In[ ]:
 
 
@@ -43,7 +40,7 @@ def probs(i):
 def PI_of(i):
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     #k = Selection_Algorithm.subgraph_of(i).degree(i)
-    nt = NT_i = nx.triangles(G,i)
+    nt = NT_i = nx.triangles(H,i)
     s1 = math.log(sum_sdeg_i-nt, 10)
      #equetion 4:en value of PI_i
     PI_i = s1 - sum(probs(i))
@@ -57,7 +54,7 @@ def loop_PI():
     PI_list=[]
     
     for i in Selection_Algorithm.sel_subgraphs():
-        NT_i = nx.triangles(G,i)
+        NT_i = nx.triangles(H,i)
         if NT_i > 1:            
             PI_i = round( PI_of(i), 4)
             i+=1

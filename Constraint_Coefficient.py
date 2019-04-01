@@ -13,14 +13,11 @@ import operator
 # In[2]:
 
 
-def graph():
-    Graph = nx.karate_club_graph()
+def graph():    
+    import graph
+    Graph = graph.H
     return Graph
-G = graph()
-def graph_h():
-    H = nx.convert_node_labels_to_integers(G, first_label=0, ordering="default", label_attribute = None)
-    return H
-H = graph_h()
+H = graph()
 
 
 # In[3]:
