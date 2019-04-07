@@ -11,14 +11,11 @@ import math
 
 # In[ ]:
 #TR_i = tr-ceyntrality i subgraph
-def graph():
-    Graph = nx.karate_club_graph()
+def graph():    
+    import graph
+    Graph = graph.H
     return Graph
-G = graph()
-def graph_h():
-    H = nx.convert_node_labels_to_integers(G, first_label=0, ordering="default", label_attribute = None)
-    return H
-H = graph_h()
+H = graph()
 
 # In[ ]:
 #equetion 2:TCi_constrain
@@ -42,7 +39,7 @@ def TC_of(i):
     #sumof_sdeg_i
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     #equetion 3:Tr centrality value of TC_i
-    TC_i = (math.pi*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i    
+    TC_i = (3*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i    
     return  TC_i
 
 
@@ -63,10 +60,9 @@ def loop_TC():
         nodeset = set(nodes)
         #equetion 1:selection constrain
         if NT_i > 1:
-            if TC_constrain_of(i) != 0:
                 TR_i = round(TC_of(i), 4)
                 i+=1
-                TC = (i, TR_i)       
+                TC = (i, 1-TR_i)       
                 TC_list.append(TC)            
     return  TC_list
 
