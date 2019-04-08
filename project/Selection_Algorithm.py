@@ -5,25 +5,26 @@ import math
 
 
 # In[ ]:
-def graph():
-    Graph = nx.karate_club_graph()
+def graph():    
+    import graph
+    Graph = graph.H
     return Graph
-G = graph()
+H = graph()
 
 
     
 from itertools import combinations
-def nodes_in_triangle(G, n):
+def nodes_in_triangle(H, n):
     """
     Returns the nodes in a graph `G` that are involved in a triangle relationship with the node `n`.
     """
     triangle_nodes = set([n])
 
     # Iterate over all possible triangle relationship combinations
-    for n1, n2 in combinations(G.neighbors(n), 2):
+    for n1, n2 in combinations(H.neighbors(n), 2):
 
         # Check if n1 and n2 have an edge between them
-        if G.has_edge(n1, n2):
+        if H.has_edge(n1, n2):
 
             # Add n1 to triangle_nodes
             triangle_nodes.add(n1)
@@ -39,7 +40,7 @@ def selection_constrain_of(i):
         # sum(sdeg_j):
         sum_sdeg_j = subgraph_of(i).number_of_edges()
         # number of triangles: nodes
-        NT_i = nx.triangles(G,i)
+        NT_i = nx.triangles(H,i)
         if NT_i > 1:
         #equetion 1:selection constrain        
             TR_i = (N_i-(sum_sdeg_j/2))            
@@ -50,12 +51,12 @@ def Selection_Algorithm():
     # main part of AL loop
     i=0
     valid_set = []
-    for i in G.nodes: 
+    for i in H.nodes: 
         subgraph = subgraph_of(i)
         # degree of Ni:
         N_i = subgraph.number_of_nodes()
         # number of triangles: nodes
-        NT_i = nx.triangles(G,i)
+        NT_i = nx.triangles(H,i)
         # Extract the nodes of interest: nodes
         nodes = [n for n, d in subgraph.nodes(data=True)]
         # Create the set of nodes: nodeset
@@ -73,9 +74,9 @@ def Selection_Algorithm():
 # In[ ]:
 def sel_subgraphs():
     sel_subgraphs = []
-    for i in G:
-        sel_subgraph = G.subgraph(nodes_in_triangle(G, i))
-        NT_i = nx.triangles(G,i)
+    for i in H:
+        sel_subgraph = H.subgraph(nodes_in_triangle(H, i))
+        NT_i = nx.triangles(H,i)
         if NT_i > 1:            
             row = i        
             sel_subgraphs.append(row)
@@ -84,6 +85,6 @@ def sel_subgraphs():
 # In[ ]:
 #return subgraphs
 def subgraph_of(i):
-    subgraph = G.subgraph(nodes_in_triangle(G, i))
+    subgraph = H.subgraph(nodes_in_triangle(H, i))
     return  subgraph  
 
