@@ -7,8 +7,9 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 
+
 #G = nx.karate_club_graph()
-fh=open("PB.txt", 'rb')
+fh=open("ca-sandi_auths.mtx", 'rb')
 G = nx.read_weighted_edgelist(fh,nodetype=None, encoding='utf-8')
 fh.close()
 
