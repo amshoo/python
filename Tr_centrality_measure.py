@@ -62,7 +62,7 @@ def loop_TC():
         if NT_i > 1:
                 TR_i = round(TC_of(i), 4)
                 i+=1
-                TC = (i, 1-TR_i)       
+                TC = (i, TR_i)       
                 TC_list.append(TC)            
     return  TC_list
 
