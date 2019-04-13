@@ -9,7 +9,7 @@ import networkx as nx
 
 
 #G = nx.karate_club_graph()
-fh=open("DataSet/Power.txt", 'rb')
+fh=open("DataSet/bio-celegans.txt", 'rb')
 G = nx.read_weighted_edgelist(fh,nodetype=None, encoding='utf-8')
 fh.close()
 
