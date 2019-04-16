@@ -20,7 +20,7 @@ def prob(i, j):
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     nodes = Selection_Algorithm.subgraph_of(i).nodes
     degree = Selection_Algorithm.subgraph_of(i).degree[j]
-    prob=degree/sum_sdeg_i 
+    prob=degree/sum_sdeg_i
     return prob  
 
 def log2(i,j):
@@ -58,7 +58,7 @@ def loop_PI():
         NT_i = nx.triangles(H,i)
         if NT_i > 1:            
             PI_i = round( PI_of(i), 4)
-            PI = i, PI_i
+            PI = i, -PI_i
             PI_list.append(PI)  
             
     return  PI_list
