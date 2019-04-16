@@ -58,7 +58,7 @@ def loop_PI():
         NT_i = nx.triangles(H,i)
         if NT_i > 1:            
             PI_i = round( PI_of(i), 4)
-            PI = i, -PI_i
+            PI = i, PI_i
             PI_list.append(PI)  
             
     return  PI_list
