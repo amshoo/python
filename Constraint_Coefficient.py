@@ -24,23 +24,6 @@ H = graph()
 
 
 import Selection_Algorithm
-#import math
-def weighted_graph():
-    for i in Selection_Algorithm.sel_subgraphs():
-        for j in Selection_Algorithm.sel_subgraphs():
-            if H.has_edge(i, j) == True:
-                k_i=H.degree(i)
-                k_j=H.degree(j)    
-                p=1
-                U = (k_i-1) * (k_j-1)           
-                I_eij = p/U
-                round_up_weight = round(I_eij, 4)
-                H.add_edge(i,j, weight = round_up_weight)                
-weighted_graph()
-
-# In[4]:
-
-#print(H.edges(data=True))
 
 # In[5]:
 
@@ -87,6 +70,10 @@ def local_constraint(H, u, v, weight=None):
                    for w in set(nx.all_neighbors(H, u)))
     return (direct + indirect) ** 2
 
+#Ranking
+#return sorted list of node and it Constraint_Coefficient
+sorted_x = sorted(constraint(H, nodes=None, weight=None).items(), 
+                  key=operator.itemgetter(1))
 
 # In[13]:
 #return the CC of node i

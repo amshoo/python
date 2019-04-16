@@ -61,8 +61,15 @@ def loop_TC():
         #equetion 1:selection constrain
         if NT_i > 1:
                 TR_i = round(TC_of(i), 4)
-                i+=1
-                TC = (i, TR_i)       
+                TC = (i, 1-TR_i)       
                 TC_list.append(TC)            
     return  TC_list
+
+# In[ ]:
+#Ranking TC_list
+def TC_Ranking( val ):
+      return val [1]
+
+TC_Rank = loop_TC()
+TC_Rank.sort(key=lambda elem: elem[1])
 
