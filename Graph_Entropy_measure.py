@@ -38,10 +38,10 @@ def probs(i):
     return probs 
 #Return PI of i
 def PI_of(i):
+    sdeg = Selection_Algorithm.subgraph_of(i).degree(i)
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
-    #k = Selection_Algorithm.subgraph_of(i).degree(i)
-    NT_i = nx.triangles(H,i)
-    s1 = math.log(sum_sdeg_i-NT_i, 10)
+    NT_i = nx.triangles(H,i)    
+    s1 = math.log(sum_sdeg_i, 10)
      #equetion 4:en value of PI_i
     if NT_i > 1:
         PI_i = s1 - sum(probs(i))
