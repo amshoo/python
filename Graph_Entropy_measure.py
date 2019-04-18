@@ -16,18 +16,20 @@ H = graph()
 
 
 #Graph Entropy 
+def log1(i):
+    sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
+    s1 = math.log(sum_sdeg_i, 10)
+    return  s1
 def prob(i, j): 
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     nodes = Selection_Algorithm.subgraph_of(i).nodes
     degree = Selection_Algorithm.subgraph_of(i).degree[j]
-    prob=degree/sum_sdeg_i
+    prob=-(degree/sum_sdeg_i )
     return prob  
-
 def log2(i,j):
     degree = Selection_Algorithm.subgraph_of(i).degree[j]
     log_j = math.log(degree, 10)
     return log_j
-
 def probs(i):
     probs=[]
     for i in Selection_Algorithm.subgraph_of(i).nodes:
@@ -36,15 +38,11 @@ def probs(i):
             #enr=(i, en)
         probs.append(enr)  
     return probs 
-#Return PI of i
 def PI_of(i):
-    sdeg = Selection_Algorithm.subgraph_of(i).degree(i)
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
-    NT_i = nx.triangles(H,i)    
-    s1 = math.log(sum_sdeg_i, 10)
+    s1 = (math.log(sum_sdeg_i, 10))
      #equetion 4:en value of PI_i
-    if NT_i > 1:
-        PI_i = s1 - sum(probs(i))
+    PI_i =s1-sum(probs(i))
     return PI_i
 
 
@@ -68,4 +66,4 @@ def PI_Ranking( val ):
       return val [1]
 
 PI_Rank = loop_PI()
-PI_Rank.sort(key=lambda elem: elem[1])
+PI_Rank.sort(key=lambda elem: elem[1], reverse=True)
