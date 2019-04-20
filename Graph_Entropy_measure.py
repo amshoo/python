@@ -56,7 +56,7 @@ def loop_PI():
         NT_i = nx.triangles(H,i)
         if NT_i > 1:            
             PI_i = round( PI_of(i), 4)
-            PI = i, PI_i
+            PI = i, 1/PI_i
             PI_list.append(PI)  
             
     return  PI_list
@@ -66,4 +66,4 @@ def PI_Ranking( val ):
       return val [1]
 
 PI_Rank = loop_PI()
-PI_Rank.sort(key=lambda elem: elem[1], reverse=True)
+PI_Rank.sort(key=lambda elem: elem[1])
