@@ -40,8 +40,10 @@ def probs(i):
     return probs 
 def PI_of(i):
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
+    NT_i = nx.triangles(H,i)
+    sdeg=Selection_Algorithm.subgraph_of(i).degree(i)
     s1 = (math.log(sum_sdeg_i, 10))
-     #equetion 4:en value of PI_i
+    #equetion 4:en value of PI_i
     PI_i =s1-sum(probs(i))
     return PI_i
 
@@ -55,8 +57,8 @@ def loop_PI():
     for i in Selection_Algorithm.sel_subgraphs():
         NT_i = nx.triangles(H,i)
         if NT_i > 1:            
-            PI_i = round( PI_of(i), 4)
-            PI = i, PI_i
+            PI_i = round(PI_of(i), 4)
+            PI = i, 1/PI_i
             PI_list.append(PI)  
             
     return  PI_list
@@ -66,4 +68,4 @@ def PI_Ranking( val ):
       return val [1]
 
 PI_Rank = loop_PI()
-PI_Rank.sort(key=lambda elem: elem[1],reverse=True)
+PI_Rank.sort(key=lambda elem: elem[1])
