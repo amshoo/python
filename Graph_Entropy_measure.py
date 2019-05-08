@@ -42,7 +42,7 @@ def PI_of(i):
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     NT_i = nx.triangles(H,i)
     sdeg=Selection_Algorithm.subgraph_of(i).degree(i)
-    s1 = (math.log(sum_sdeg_i, 10))
+    s1 = (math.log(sum_sdeg_i, 10)+NT_i)
     #equetion 4:en value of PI_i
     PI_i =s1-sum(probs(i))
     return PI_i
