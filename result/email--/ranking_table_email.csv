@@ -1,4 +1,4 @@
-,nodes,nodes_tr,nodes_bc,nodes_cnc,nodes_dc,nodes_ec,nodes_pr,nodes_TC,nodes_PI,nodes_CC,nodes_TPN
+,NDR,TR,BC,CNC,DC,EC,PR,TC,PI,CC,TPN
 0,105,105,333,333,105,105,105,105,105,23,105
 1,333,16,105,23,333,16,376,16,16,333,16
 2,16,196,23,105,16,196,355,196,196,105,333
