@@ -6,7 +6,6 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import math
 import Selection_Algorithm
-import math
 
 
 # In[ ]:
@@ -59,10 +58,10 @@ def loop_TC():
         # Create the set of nodes: nodeset
         nodeset = set(nodes)
         #equetion 1:selection constrain
-        
-        TR_i = round(TC_of(i), 4)
-        TC = (i, TR_i)       
-        TC_list.append(TC)            
+        if NT_i > 1:
+                TR_i = round(TC_of(i), 4)
+                TC = (i, TR_i)       
+                TC_list.append(TC)            
     return  TC_list
 
 # In[ ]:
