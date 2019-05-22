@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 import networkx as nx
 
 #H = nx.karate_club_graph()
-fh=open("../DataSet/Power.txt", 'rb')
+fh=open("../DataSet/S1/amazon.txt", 'rb')
 H = nx.read_weighted_edgelist(fh,nodetype=int, encoding='utf-8')
 fh.close()
 
