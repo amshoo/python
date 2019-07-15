@@ -61,6 +61,7 @@ def loop_TC():
         #equetion 1:selection constrain
         if NT_i > 1:
                 TR_i = round(TC_of(i), 4)
+                #TR_i = TC_of(i)
                 TC = (i, TR_i)       
                 TC_list.append(TC)            
     return  TC_list
