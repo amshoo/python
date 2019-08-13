@@ -18,16 +18,6 @@ def graph():
 H = graph()
 
 # In[ ]:
-#equetion 2:TCi_constrain
-def TC_constrain_of(i):
-        sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_nodes()-1)
-        sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
-        N_i = Selection_Algorithm.subgraph_of(i).number_of_nodes()
-        NT_i = nx.triangles(H,i)
-        #equetion 2:TCi_constrain
-        TC_i_cons = (sdeg_i/sum_sdeg_i)-((N_i-NT_i)/sum_sdeg_i)
-        
-        return  TC_i_cons 
 #Tr-ceyntrality    
 def TC_of(i):
     #degree of node i
@@ -39,7 +29,10 @@ def TC_of(i):
     #sumof_sdeg_i
     sum_sdeg_i = (Selection_Algorithm.subgraph_of(i).number_of_edges()*2)
     #equetion 3:Tr centrality value of TC_i
-    TC_i = (3*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i    
+    #TC_i = (3*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i  
+  
+    TC_i = 3*(sdeg_i-1)-(2*(N_i)+NT_i)+sum_sdeg_i 
+    
     return  TC_i
 
 
