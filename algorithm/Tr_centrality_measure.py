@@ -32,9 +32,9 @@ def TC_of(i):
     #TC_i = (3*(sdeg_i-1)-(2*(N_i)-NT_i))/sum_sdeg_i  
   
     TC_i = 3*(sdeg_i-1)-(2*(N_i)+NT_i)+sum_sdeg_i 
-    tc_i= TC_i *0.01
+    #tc_i= TC_i *0.01
     
-    return   tc_i
+    return   TC_i
 
 
 # In[ ]:
